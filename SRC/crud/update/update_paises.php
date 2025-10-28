@@ -1,5 +1,5 @@
 <?php
-include '../../database/db.php';
+include '/xampp/htdocs/CRUD_Mundo/SRC/database/db.php';
     
 $nome = "";
 $continente ="";
@@ -50,7 +50,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="" class="css">
+    <link rel="stylesheet" href="style.css" class="css">
+    <link rel="shortcut icon" href="../../../img/globo.svg" type="image/ico" />
     <title>Update</title>
 </head>
 <body>

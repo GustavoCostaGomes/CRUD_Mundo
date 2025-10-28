@@ -1,5 +1,5 @@
 <?php
-include '../../database/db.php';
+include '/xampp/htdocs/CRUD_Mundo/SRC/database/db.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = $_POST['nome'];
     $populacao = $_POST['populacao'];
@@ -34,6 +34,7 @@ $conn->close();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" class="css">
+    <link rel="shortcut icon" href="../../../img/globo.svg" type="image/ico" />
     <title>Cadastro de Cidades</title>
 </head>
 <body>

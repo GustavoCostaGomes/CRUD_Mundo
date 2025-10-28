@@ -1,5 +1,5 @@
 <?php
-include '../../database/db.php';
+include '/xampp/htdocs/CRUD_Mundo/SRC/database/db.php';
 
 if (isset($_GET['id_pais'])) {   
     $id = $_GET['id_pais'];
