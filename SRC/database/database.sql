@@ -6,7 +6,8 @@ create table paises (
     nome varchar(80) not null,
     continente varchar (20) not null,
     populacao int not null,
-    idioma varchar(20) not null
+    idioma varchar(20) not null,
+    bandeira varchar(255) not null
 );
 
 create table cidades (
