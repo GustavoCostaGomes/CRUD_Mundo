@@ -67,3 +67,67 @@ header {
     transform: scaleX(1);
     background: #009c1a;
 }
+
+main {
+    margin-top: 4%;
+    display: flex;
+    justify-content: space-around;
+}
+
+table {
+    width: 400px;
+    border-collapse: collapse;
+    margin-top: 10px;   
+    background-color: #0e0e0e;
+    border-radius: 15px;
+    overflow: hidden;
+
+}
+
+table, th, td {
+    border: none;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #009c1a;
+    color: white;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+td {
+    font-size: 14px;
+}
+
+td a {
+    margin-right: 10px;
+    font-size: 14px;
+    color: #009c1a;
+    text-decoration: none;
+}
+
+td a:hover {
+    text-decoration: underline;
+    color: #003609;
+}
+
+@media (max-width: 600px) {
+    form {
+        padding: 15px;
+    }
+
+    form input[type="text"], form input[type="submit"], a.button {
+        font-size: 14px;
+    }
+
+    table, th, td {
+        font-size: 12px;
+        padding: 10px;
+    }
+}

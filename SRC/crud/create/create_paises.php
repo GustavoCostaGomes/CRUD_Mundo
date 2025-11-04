@@ -16,11 +16,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     else {
         $sql = "INSERT INTO paises(nome, continente, populacao, idioma) VALUES ('$nome', '$continente', '$populacao', '$idioma')";
         if ($conn->query($sql) === TRUE) {
-            header("Location: create_paises.php?message=" . urlencode("Cadastro realizado com sucesso"));
+            header("Location: ../crud.php?message=" . urlencode("Cadastro realizado com sucesso"));
             exit(); 
         }
         else {
-            header("Location: create_paises.php?message=" . urlencode("Erro ao cadastrar"));
+            header("Location: ../crud.php?message=" . urlencode("Erro ao cadastrar"));
             exit();
         }
     }
@@ -35,10 +35,19 @@ $conn->close();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" class="css">
-    <link rel="shortcut icon" href="../../../img/globo.svg" type="image/ico" />
+    <link rel="shortcut icon" href="../../assets/img/globo.svg" type="image/ico" />
     <title>Cadastro de Países</title>
 </head>
 <body>
+    <header>
+        <div class="logo">
+            <a href="index.php" title="Logo"><img src="../../assets/img/logo.svg" alt="Logo" title="Logo"/></a>
+        </div>
+
+        <nav class="navbar">
+            <a class="navbaritem" href="../crud.php">Voltar</a>
+        </nav>
+    </header>
 
 </body>
 </html>
