@@ -1,28 +1,46 @@
 <?php
 include '/xampp/htdocs/CRUD_Mundo/SRC/database/db.php';
+
+$mensagem = ""; 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = $_POST['nome'];
     $continente = $_POST['continente'];
-    $populacao = $_POST['populacao'];
+    $populacao = (int) $_POST['populacao'];
     $idioma = $_POST['idioma'];
 
-    $sql = "SELECT * FROM paises WHERE nome = '$nome'";
-    $result = $conn->query($sql);
+    if (isset($_FILES['bandeira']) && $_FILES['bandeira']['error'] === UPLOAD_ERR_OK) {
+        $foto = $_FILES['bandeira'];
 
-    if ($result->num_rows > 0) {
-        header("Location: create_paises.php?message=" . urlencode("País já cadastrado"));
-        exit();
-    }
-    else {
-        $sql = "INSERT INTO paises(nome, continente, populacao, idioma) VALUES ('$nome', '$continente', '$populacao', '$idioma')";
-        if ($conn->query($sql) === TRUE) {
-            header("Location: ../crud.php?message=" . urlencode("Cadastro realizado com sucesso"));
-            exit(); 
+        $targetDir = "../../assets/img/";
+        if (!is_dir($targetDir)) {
+            mkdir($targetDir, 0755, true);
         }
-        else {
-            header("Location: ../crud.php?message=" . urlencode("Erro ao cadastrar"));
-            exit();
+
+        $fileName = uniqid() . '.' . strtolower(pathinfo($foto['name'], PATHINFO_EXTENSION));
+        $targetFilePath = $targetDir . $fileName;
+
+        $allowedTypes = ['jpg', 'jpeg', 'png', 'avif', 'webp'];
+        $fileType = strtolower(pathinfo($foto['name'], PATHINFO_EXTENSION));
+        if (!in_array($fileType, $allowedTypes)) {
+            $mensagem = "Formato de imagem inválido. Permitidos: JPG, JPEG e PNG";
+        } elseif (move_uploaded_file($foto['tmp_name'], $targetFilePath)) {
+                $insertQuery = "INSERT INTO paises (nome, continente, populacao, idioma, bandeira) VALUES (?, ?, ?, ?, ?)";
+                $stmt = $conn->prepare($insertQuery);
+                $stmt->bind_param("sssis", $nome, $continente, $populacao, $idioma, $fileName);
+
+                if ($stmt->execute()) {
+                    $stmt->close();
+                    $conn->close();
+                    header("Location: ../crud.php");
+                } else {
+                    $mensagem = "Erro ao cadastrar produto. Tente novamente.";
+                }
+        } else {
+            $mensagem = "Erro ao fazer upload da imagem.";
         }
+    } else {
+        $mensagem = "Nenhuma imagem foi enviada ou ocorreu um erro.";
     }
 }
 $conn->close();
@@ -41,7 +59,7 @@ $conn->close();
 <body>
     <header>
         <div class="logo">
-            <a href="index.php" title="Logo"><img src="../../assets/img/logo.svg" alt="Logo" title="Logo"/></a>
+            <a href="../../index.php" title="Logo"><img src="../../assets/img/logo.svg" alt="Logo" title="Logo"/></a>
         </div>
 
         <nav class="navbar">
@@ -49,5 +67,38 @@ $conn->close();
         </nav>
     </header>
 
+    <main>
+        <div class="wrap">
+            <div class="form-box">
+                <h2>Cadastrar Países</h2>
+                <form action="create_paises.php" method="post" autocomplete="off" enctype="multipart/form-data">
+                    <div class="message">
+                        <?php if (!empty($mensagem)) echo '<span class="message-text">' . htmlspecialchars($mensagem) . '</span>'; ?>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" name="nome" required>
+                    <label>Nome</label>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" name="continente" required>
+                        <label>Continente</label>
+                    </div>
+                    <div class="input-box">
+                        <input type="number" name="populacao" required>
+                        <label>População</label>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" name="idioma" required>
+                        <label>Idioma</label>
+                    </div>
+                    <div class="input-box">
+                        <input type="file" name="bandeira" required>
+                        <label>Bandeira</label>
+                    </div>
+                    <button type="submit" class="btn">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+    </main>
 </body>
 </html>

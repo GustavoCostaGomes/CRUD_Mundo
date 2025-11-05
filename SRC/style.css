@@ -86,17 +86,15 @@ header {
 
 .card {
     width: 325px;
-    background-color: #f0f0f0;
+    background-color: #0e0e0e;
     border-radius: 25px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgb(0, 0, 0, .5);
     margin: 20px;
 }
 
 .card img {
     width: 100%;
     height: auto;
-    box-shadow: 0 1px 5px rgb(0, 0, 0, .5);
 }
 
 .card-content {

@@ -54,7 +54,7 @@ $conn->close();
                                         <td>" . $row["idioma"] . "</td>
                                         <td>" . $row["bandeira"] . "</td>
                                         <td>
-                                            <a href = 'update/update_paises.php?id_pais=" . $row["id_pais"] . "'>Editar</a>
+                                            <a href='update/update_paises.php?id_pais=" . $row["id_pais"] . "'>Editar</a>
                                             <a href='delete/delete_paises.php?id_pais=" . $row["id_pais"] . "' class='btn-excluir'>Excluir</a>
                                         </td>
                                     </tr>";
@@ -89,7 +89,7 @@ $conn->close();
                                         <td>" . $row["id_pais"] . "</td>
                                         <td>
                                             <a href = 'update/update_cidades.php?id_cidade=" . $row["id_cidade"] . "'>Editar</a>
-                                            a href='delete/delete_cidades.php?id_cidade=" . $row["id_cidade"] . "' class='btn-excluir'>Excluir</a>
+                                            <a href='delete/delete_cidades.php?id_cidade=" . $row["id_cidade"] . "' class='btn-excluir'>Excluir</a>
                                         </td>
                                     </tr>";
                                 }

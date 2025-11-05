@@ -7,14 +7,14 @@ if (isset($_GET['id_pais'])) {
     $sql = "DELETE FROM paises WHERE id_pais = $id";
 
     if ($conn->query($sql) === TRUE) {
-        //header("Location: ?message=" . urldecode("Registro excluído com sucesso"));
+        header("Location: ../crud.php?message=" . urldecode("Registro excluído com sucesso"));
         exit();
     } else {
-        //header("Location: ?message=" . urldecode("Erro ao excluir registro"));
+        header("Location: ../crud.php?message=" . urldecode("Erro ao excluir registro"));
         exit();
     }
 
     $conn->close();
-    //header("Location: ");
+    header("Location: ../crud.php");
 } 
 ?>

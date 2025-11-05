@@ -43,13 +43,14 @@ if($result->num_rows > 0) {
             <?php if (!empty($paises)): ?>
                 <?php foreach ($paises as $pais): ?>
                     <div class="card">
-                        <img src="/SRC/assets/img/ <?php echo htmlspecialchars($pais['bandeira']); ?>" alt="<?php echo htmlspecialchars($pais['nome']); ?>">
+                        <img src="assets/img/<?php echo htmlspecialchars($pais['bandeira']); ?>" alt="<?php echo htmlspecialchars($pais['nome']); ?>">
                         <div class="card-content">
                             <h3><?php echo htmlspecialchars($pais['nome']); ?></h3>
                             <p><?php echo htmlspecialchars($pais['continente']); ?></p>
-                            <p><?php echo htmlspecialchars($pais['populacao']); ?></p>
+                            <p><?php echo number_format($pais['populacao'], 0, ',', '.') . ' habitantes'; ?></p>
                             <p><?php echo htmlspecialchars($pais['idioma']); ?></p>
-                            <a href="/SRC/pais/pais.php echo urlencode($pais['id_pais']); ?>" class="btn">Ver cidades</a>
+                            <a href="pais/pais.php?id=<?php echo urlencode($pais['id_pais']); ?>" class="btn">Ver cidades</a>
+
                         </div>
                     </div>
                 <?php endforeach; ?>
