@@ -49,7 +49,7 @@ if($result->num_rows > 0) {
                             <p><?php echo htmlspecialchars($pais['continente']); ?></p>
                             <p><?php echo number_format($pais['populacao'], 0, ',', '.') . ' habitantes'; ?></p>
                             <p><?php echo htmlspecialchars($pais['idioma']); ?></p>
-                            <a href="pais/pais.php?id=<?php echo urlencode($pais['id_pais']); ?>" class="btn">Ver cidades</a>
+                            <a href="pais/pais.php?id_pais=<?php echo urlencode($pais['id_pais']); ?>" class="btn">Ver cidades</a>
 
                         </div>
                     </div>

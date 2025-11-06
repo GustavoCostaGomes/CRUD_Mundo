@@ -1,6 +1,30 @@
 <?php
 include '/xampp/htdocs/CRUD_Mundo/SRC/database/db.php';
 
+$cidades = [];
+
+if (isset($_GET['id_pais']) && is_numeric($_GET['id_pais'])) {
+    $id_pais = (int) ($_GET['id_pais']);
+    $query = "SELECT * FROM paises WHERE id_pais  = $id_pais";
+    $result = $conn->query($query);
+
+    if ($result->num_rows > 0) {
+        $pais = $result->fetch_assoc();
+    } else {
+        $pais = null;
+    }
+}
+
+if (isset($id_pais)) {
+    $query = "SELECT * FROM cidades WHERE id_pais = $id_pais";
+    $result = $conn->query($query);
+
+    if ($result && $result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $cidades[] = $row;
+        }
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +39,7 @@ include '/xampp/htdocs/CRUD_Mundo/SRC/database/db.php';
 <body>
     <header>
         <div class="logo">
-            <a href="index.php" title="Logo"><img src="../assets/img/logo.svg" alt="Logo" title="Logo"/></a>
+            <a href="../index.php" title="Logo"><img src="../assets/img/logo.svg" alt="Logo" title="Logo"/></a>
         </div>
 
         <nav class="navbar">
@@ -23,4 +47,24 @@ include '/xampp/htdocs/CRUD_Mundo/SRC/database/db.php';
         </nav>
     </header>
 
-    <main>    
+    <main>
+        <div class="titulo">
+            <h2><?php echo htmlspecialchars($pais['nome']); ?></h2>
+        </div>  
+        
+        <div class="card-container">
+            <?php if (!empty($cidades)): ?>
+                <?php foreach ($cidades as $cidade): ?>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3><?php echo htmlspecialchars($cidade['nome']); ?></h3>
+                            <p><?php echo number_format($cidade['populacao'], 0, ',', '.') . ' habitantes'; ?></p>
+                            <a href="cidade/cidade.php?id_cidade=<?php echo urlencode($cidade['id_cidade']); ?>" class="btn">Ver Informações</a>
+
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p>Não há cidades disponíveis no momento.</p>
+            <?php endif; ?>
+        </div>
