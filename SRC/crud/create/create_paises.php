@@ -27,8 +27,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } elseif (move_uploaded_file($foto['tmp_name'], $targetFilePath)) {
                 $insertQuery = "INSERT INTO paises (nome, continente, populacao, idioma, bandeira) VALUES (?, ?, ?, ?, ?)";
                 $stmt = $conn->prepare($insertQuery);
-                $stmt->bind_param("sssis", $nome, $continente, $populacao, $idioma, $fileName);
-
+                $stmt->bind_param("ssiss", $nome, $continente, $populacao, $idioma, $fileName);
+                
                 if ($stmt->execute()) {
                     $stmt->close();
                     $conn->close();
@@ -77,7 +77,7 @@ $conn->close();
                     </div>
                     <div class="input-box">
                         <input type="text" name="nome" required>
-                    <label>Nome</label>
+                    <label>Nome (em inglês)</label>
                     </div>
                     <div class="input-box">
                         <input type="text" name="continente" required>
@@ -100,5 +100,9 @@ $conn->close();
             </div>
         </div>
     </main>
+
+    <footer>
+         <p> CRUD_Mundo - Gustavo Gomes </p>
+    </footer>
 </body>
 </html>

@@ -71,39 +71,41 @@ $conn->close();
                 <div class="titulo">
                     <h2>Cidades</h2>
                 </div>
-                <table>
-                    <tr>
-                        <th>Id</th>
-                        <th>Nome</th>
-                        <th>População</th>
-                        <th>Id_pais</th>
-                        <th>Ações</th>
-                    </tr>
-                    <?php
-                            if($resultCidades->num_rows > 0) {
-                                while ($row = $resultCidades->fetch_assoc()) {
-                                    echo "<tr>
-                                        <td>" . $row["id_cidade"] . "</td>
-                                        <td>" . $row["nome"] . "</td>
-                                        <td>" . $row["populacao"] . "</td>
-                                        <td>" . $row["id_pais"] . "</td>
-                                        <td>
-                                            <a href = 'update/update_cidades.php?id_cidade=" . $row["id_cidade"] . "'>Editar</a>
-                                            <a href='delete/delete_cidades.php?id_cidade=" . $row["id_cidade"] . "' class='btn-excluir'>Excluir</a>
-                                        </td>
-                                    </tr>";
+                <div class="scroll">
+                    <table>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nome</th>
+                            <th>População</th>
+                            <th>Id_pais</th>
+                            <th>Ações</th>
+                        </tr>
+                        <?php
+                                if($resultCidades->num_rows > 0) {
+                                    while ($row = $resultCidades->fetch_assoc()) {
+                                        echo "<tr>
+                                            <td>" . $row["id_cidade"] . "</td>
+                                            <td>" . $row["nome"] . "</td>
+                                            <td>" . $row["populacao"] . "</td>
+                                            <td>" . $row["id_pais"] . "</td>
+                                            <td>
+                                                <a href = 'update/update_cidades.php?id_cidade=" . $row["id_cidade"] . "'>Editar</a>
+                                                <a href='delete/delete_cidades.php?id_cidade=" . $row["id_cidade"] . "' class='btn-excluir'>Excluir</a>
+                                            </td>
+                                        </tr>";
+                                    }
                                 }
-                            }
-                            else{
-                            echo "<tr><td colspan='5'>Nenhum registro encontrado</td></tr>";
-                            }
-                    ?>
-                </table>
+                                else{
+                                echo "<tr><td colspan='5'>Nenhum registro encontrado</td></tr>";
+                                }
+                        ?>
+                    </table>
+                </div>
             </div>
     </main>
 
     <footer>
-
+         <p> CRUD_Mundo - Gustavo Gomes </p>
     </footer>
 
 <script src="../js/script.js"></script>

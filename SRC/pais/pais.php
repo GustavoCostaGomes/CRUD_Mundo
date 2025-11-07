@@ -9,7 +9,7 @@ if (isset($_GET['id_pais']) && is_numeric($_GET['id_pais'])) {
     $result = $conn->query($query);
 
     if ($result->num_rows > 0) {
-        $pais = $result->fetch_assoc();
+        $pais = $result->fetch_assoc();  
     } else {
         $pais = null;
     }
@@ -34,12 +34,16 @@ if (isset($id_pais)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="../assets/img/globo.svg" type="image/ico" />
-    <title>Home</title>
+    <title><?php echo htmlspecialchars($pais['nome']); ?></title>
 </head>
 <body>
     <header>
         <div class="logo">
             <a href="../index.php" title="Logo"><img src="../assets/img/logo.svg" alt="Logo" title="Logo"/></a>
+        </div>
+
+        <div class="search-container">
+            <input type="text" id="search-cidades" class="search-box" placeholder="Buscar cidade...">
         </div>
 
         <nav class="navbar">
@@ -52,6 +56,8 @@ if (isset($id_pais)) {
             <h2><?php echo htmlspecialchars($pais['nome']); ?></h2>
         </div>  
         
+        <div id="api-info" class="api-info"></div>
+
         <div class="card-container">
             <?php if (!empty($cidades)): ?>
                 <?php foreach ($cidades as $cidade): ?>
@@ -68,3 +74,12 @@ if (isset($id_pais)) {
                 <p>Não há cidades disponíveis no momento.</p>
             <?php endif; ?>
         </div>
+    </main>
+    
+    <footer>
+         <p> CRUD_Mundo - Gustavo Gomes </p>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

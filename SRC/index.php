@@ -29,6 +29,10 @@ if($result->num_rows > 0) {
             <a href="index.php" title="Logo"><img src="assets/img/logo.svg" alt="Logo" title="Logo"/></a>
         </div>
 
+        <div class="search-container">
+            <input type="text" id="search-paises" class="search-box" placeholder="Buscar país...">
+        </div>
+
         <nav class="navbar">
             <a class="navbaritem" href="crud/crud.php">Editar Dados</a>
         </nav>
@@ -62,7 +66,9 @@ if($result->num_rows > 0) {
     </main>
 
     <footer>
-
+         <p> CRUD_Mundo - Gustavo Gomes </p>
     </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>

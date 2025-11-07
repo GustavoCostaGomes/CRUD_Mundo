@@ -85,5 +85,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </div>
     </main>
+
+    <footer>
+         <p> CRUD_Mundo - Gustavo Gomes </p>
+    </footer>
 </body>
 </html>

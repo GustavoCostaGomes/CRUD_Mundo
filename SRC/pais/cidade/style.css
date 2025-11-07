@@ -32,7 +32,7 @@ header {
     border-bottom-right-radius: 35px;
 }
 
-.logo a img {
+.logo a img{
     width: 80px;
     height: 80px;
 }
@@ -69,114 +69,66 @@ header {
 }
 
 main {
+    flex: 1;
+}
+
+.titulo {
+    margin-top: 5%;
+    margin-left: 5%;
+    border-bottom: 3px solid #009c1a;
+    font-weight:bold;
+    font-size: 1.2em;
+    width: 85%; 
+}
+
+.api-info {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 3%;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    gap: 20px;
+    color: #fff;
 }
 
-.wrap {
-    position: relative;
-    width: 300px;
-    height: 400px;
-    background: #0e0e0e;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.form-box {
-    width: 100%;
-    padding: 40px;
-}
-
-.message {
-    width: 100%;
+.api-card {
+    width: 500px;
+    background-color: #0e0e0e;
+    border-radius: 25px;
+    padding: 20px;
     text-align: center;
-    position: relative;
+    transition: transform 0.3s ease;
 }
 
-.message-text {
-    color: #d1d1d1;
-    font-weight: 600;
-    font-size: 0.8em;
+.api-card:hover {
+    transform: translateY(-5px);
 }
 
-.form-box h2 {
-    font-size: 1.4em;
-    color: #d1d1d1;
-    text-align: center;
+.api-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
 }
 
-.input-box {
-    position: relative;
-    width: 100%;
-    height: 20px;
-    border-bottom: 1px solid #d1d1d1;
-    margin: 30px 0;
-}
-
-.input-box label {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 5px;
-    font-size: 0.8em;
-    font-weight: 400;
-    color: #d1d1d1;
-    pointer-events: none;
-    transition: .5s;
-}
-
-.input-box input {
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    border: none;
-    outline: none;
-    color: #d1d1d1;
-    font-weight: 600;
-    padding: 0 35px 0 5px;
-}
-
-.input-box input:not(:placeholder-shown)~label {
-    top: -5px;
-}
-
-.input-box input.empty~label {
-    top: 10px;
-}
-
-.btn {
-    width: 100%;
-    height: 50px;
-    text-align: center;
-    padding: 5px 10px 5px 10px;
-    border-radius: 5px;
-    background: #009c1a;
-    cursor: pointer;
-    transition: all .2s;
-    font-weight: 600;
-    font-size: 1.1em;
-}
-
-.btn:hover {
-    transform: translateY(-2px);
-    background-color: #003609;
-}
-
-.input-box select {
-    width: 100%;
-    padding: 5px;
-    border-radius: 5px;
-    border: none;
-    background-color: #1c1c1c;
+.api-card li {
     font-size: 0.9em;
-    outline: none;
+    margin-bottom: 8px;
+    color: #d1d1d1;
 }
 
-footer {
+.api-card li strong {
+    color: #009c1a;
+    font-weight: 600;
+}
+
+.api-info p {
+    color: #d1d1d1;
+    font-size: 0.95em;
+    text-align: center;
+}
+
+footer{
     background-color: #0e0e0e;
     width: 100%;
     height: 100px;
@@ -195,9 +147,8 @@ footer {
         width: 90%;
         padding: 10px 40px;
     }
-    .wrap {
-        width: 280px;
-        height: 380px;
+    .api-card {
+        width: 400px;
     }
 }
 
@@ -205,8 +156,8 @@ footer {
     header {
         flex-direction: column;
         align-items: center;
-        text-align: center;
         padding: 20px;
+        text-align: center;
         gap: 15px;
     }
     .logo a img {
@@ -216,52 +167,33 @@ footer {
     .navbar {
         display: flex;
         justify-content: center;
-        flex-wrap: wrap;
     }
     .navbar a {
         margin: 10px;
         font-size: 14px;
     }
-    main {
-        margin-top: 40px;
-    }
-    .wrap {
+    .titulo {
+        text-align: center;
+        margin: 30px auto;
         width: 90%;
-        max-width: 320px;
-        height: auto;
-        padding: 20px;
     }
-    .form-box {
-        padding: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    header {
-        width: 100%;
-        padding: 10px;
-        flex-direction: column;
-        gap: 10px;
-    }
-    .navbar a {
-        font-size: 12px;
-        margin: 5px;
-    }
-    .wrap {
+    .api-card {
         width: 90%;
-        max-width: 280px;
-        height: auto;
-        padding: 15px;
-    }
-    .form-box h2 {
-        font-size: 1.2em;
-    }
-    .btn {
-        font-size: 1em;
-        height: 45px;
     }
     footer {
         font-size: 1em;
         height: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .api-card li {
+        font-size: 0.8em;
+    }
+    .titulo h2 {
+        font-size: 1.2em;
+    }
+    .navbar a {
+        font-size: 13px;
     }
 }
