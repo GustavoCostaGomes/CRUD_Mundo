@@ -1,92 +1,97 @@
-🌎 CRUD Mundo
+<h1 align="center">🌎 CRUD Mundo</h1> <p align="center"> <strong>Projeto desenvolvido por <a href="#">Gustavo Gomes</a></strong><br> <em>Curso Técnico em Desenvolvimento de Sistemas – ETEC São José dos Campos</em><br> <em>Disciplina: Programação Web | Ano: 2025</em> </p>
 
-Autor: Gustavo Gomes
-Curso: Desenvolvimento de Sistemas – ETEC São José dos Campos
-Disciplina: Programação Web
-Ano: 2025
+---
 
-📖 Descrição do Projeto
+📖 Descrição
 
-O CRUD Mundo é uma aplicação web desenvolvida com PHP, MySQL, HTML, CSS e JavaScript, que permite o gerenciamento de países e cidades do mundo.
-O sistema oferece funcionalidades completas de CRUD (Create, Read, Update e Delete) e integração com APIs externas para exibir dados adicionais e climáticos em tempo real.
+O CRUD Mundo é uma aplicação web full stack que permite o gerenciamento de países e cidades com funcionalidades completas de CRUD (Create, Read, Update e Delete).
+O sistema integra APIs externas para exibir informações complementares sobre países e condições climáticas em tempo real.
+
+💡 Desenvolvido utilizando PHP, MySQL, HTML, CSS e JavaScript, o projeto prioriza um design moderno, responsividade e interatividade para o usuário.
+
+---
 
 🎯 Objetivo Geral
 
-Implementar um sistema funcional e interativo que possibilite:
+Construir um sistema interativo e dinâmico que possibilite:
 
-Cadastrar e gerenciar países e cidades.
+Gerenciar países e suas respectivas cidades.
 
-Exibir informações complementares sobre países.
+Exibir dados reais e atualizados sobre cada país.
 
-Exibir condições climáticas atualizadas das cidades.
+Mostrar informações climáticas de qualquer cidade cadastrada.
 
-Pesquisar dinamicamente países e cidades.
+Oferecer uma pesquisa dinâmica e fluida.
 
-Garantir uma experiência moderna e responsiva para o usuário.
+Garantir um layout responsivo e intuitivo.
+
+---
 
 ⚙️ Tecnologias Utilizadas
+<p align="center"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="40" title="HTML5"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="40" title="CSS3"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="40" title="JavaScript"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" width="40" title="PHP"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" width="40" title="MySQL"/> </p>
 
-Front-End:
-HTML5, CSS3 e JavaScript
-
-Back-End:
-PHP e MySQL
-
-APIs Externas:
-REST Countries e OpenWeatherMap
+---
 
 💡 Funcionalidades Principais
 
-Cadastro, listagem, edição e exclusão de países.
+✅ Cadastrar, listar, editar e excluir países.
+✅ Cadastrar, listar, editar e excluir cidades.
+✅ Exibir informações detalhadas de cada país (via REST Countries).
+✅ Exibir clima em tempo real de cada cidade (via OpenWeatherMap).
+✅ Pesquisa dinâmica por nome.
+✅ Interface responsiva e moderna.
 
-Cadastro, listagem, edição e exclusão de cidades.
-
-Exibição automática de informações sobre o país (via REST Countries).
-
-Exibição de informações climáticas (via OpenWeatherMap).
-
-Pesquisa dinâmica em tempo real por países e cidades.
-
-Scroll personalizado nas tabelas de CRUD.
-
-Layout moderno e totalmente responsivo.
+---
 
 🚀 Como Executar o Projeto
 
-Baixe ou clone este repositório.
+Faça o clone do repositório:
+
+git clone https://github.com/seuusuario/CRUD_Mundo.git
+
 
 Crie o banco de dados CRUD_Mundo no MySQL.
 
-Configure a conexão no arquivo db.php.
+Configure a conexão em SRC/database/db.php.
 
-Coloque a pasta do projeto dentro do diretório do servidor local (como htdocs no XAMPP).
+Mova o projeto para o diretório do servidor local (htdocs do XAMPP).
 
-Inicie o servidor Apache e MySQL pelo XAMPP.
+Inicie o Apache e MySQL pelo XAMPP.
 
-Acesse no navegador o endereço local do projeto.
+Acesse pelo navegador:
+
+http://localhost/CRUD_Mundo/
+
+---
 
 🧩 Funcionalidades Extras
 
-Pesquisa dinâmica: permite filtrar países e cidades enquanto o usuário digita.
+✨ Pesquisa dinâmica: filtra países e cidades enquanto o usuário digita.
+✨ Integração com APIs: traz informações reais sobre países e clima.
+✨ Scroll personalizado: melhora a navegação nas tabelas de CRUD.
+✨ Animações suaves: botões e cards com hover e transições elegantes.
 
-Integração com APIs: exibe informações reais e atualizadas.
+---
 
-Interface moderna: com tema escuro, animações suaves e botões arredondados.
+🏁 Conclusão
 
-Scroll personalizado: melhora a navegação em tabelas extensas.
+O CRUD Mundo é um projeto completo de aplicação web full stack, que une:
+
+Banco de dados relacional (MySQL)
+
+Backend dinâmico (PHP)
+
+Frontend moderno (HTML, CSS e JS)
+
+Integração com APIs REST
+
+Demonstra a aplicação prática dos principais conceitos de Programação Web, CRUD e Integração de Dados Externos.
+
+---
 
 🌐 Créditos das APIs
+API	Descrição	Link
+🌍 REST Countries	Fornece informações detalhadas sobre países (capital, região, moeda, área, etc.)	https://restcountries.com
 
-🌍 REST Countries API
-Fornece informações detalhadas sobre países, como capital, região, área e moeda.
-🔗 https://restcountries.com
+☁️ OpenWeatherMap	Exibe dados climáticos em tempo real de cidades do mundo todo	https://openweathermap.org
 
-☁️ OpenWeatherMap API
-Disponibiliza dados climáticos em tempo real de qualquer cidade do mundo.
-🔗 https://openweathermap.org
-
-👨‍💻 Autor
-
-Gustavo Gomes
-ETEC São José dos Campos – Curso Técnico em Desenvolvimento de Sistemas
-📅 2025
