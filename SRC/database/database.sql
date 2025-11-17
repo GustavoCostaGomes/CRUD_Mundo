@@ -19,11 +19,11 @@ create table cidades (
 );
 
 INSERT INTO paises (nome, continente, populacao, idioma, bandeira) VALUES
-('Brazil', 'South America', 215000000, 'Portuguese', '../assets/img/Brasil.jpg'),
-('United States', 'North America', 333000000, 'English', '../assets/img/eua.png'),
-('France', 'Europe', 67400000, 'French', '../assets/img/frança.png'),
-('Japan', 'Asia', 125700000, 'Japanese', '../assets/img/japao.jpg'),
-('United Kingdom', 'Europe', 67800000, 'English', '../assets/img/uk.png');
+('Brazil', 'South America', 215000000, 'Portuguese', 'Brasil.jpg'),
+('United States', 'North America', 333000000, 'English', 'eua.png'),
+('France', 'Europe', 67400000, 'French', 'frança.png'),
+('Japan', 'Asia', 125700000, 'Japanese', 'japao.jpg'),
+('United Kingdom', 'Europe', 67800000, 'English', 'uk.png');
 
 INSERT INTO cidades (nome, populacao, id_pais) VALUES
 ('São Paulo', 12300000, 1),
